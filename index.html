@@ -70,16 +70,16 @@
     <h2>מחשבון מענק רכב - רפורמת נפש אחת</h2>
 
     <label>סכום זכאות קודם (₪)</label>
-    <input type="number" id="previousGrant">
+    <input type="number" id="previousGrant" placeholder="למשל: 80000">
 
     <label>עלות רכישת הרכב בפועל (₪)</label>
-    <input type="number" id="actualPrice">
+    <input type="number" id="actualPrice" placeholder="למשל: 100000">
 
     <label>שווי הרכב הנוכחי שלך כיום (אחרי ירידת ערך) (₪)</label>
-<input type="number" id="currentCarValue">
+    <input type="number" id="currentCarValue" placeholder="למשל: 65000">
 
     <label>סכום זכאות מעודכן (₪)</label>
-    <input type="number" id="updatedGrant">
+    <input type="number" id="updatedGrant" placeholder="למשל: 90000">
 
     <button onclick="calculateGrant()">חשב</button>
 
@@ -93,7 +93,7 @@
       const currentCarValue = parseFloat(document.getElementById("currentCarValue").value);
       const updatedGrant = parseFloat(document.getElementById("updatedGrant").value);
 
-      if (isNaN(previousGrant) || isNaN(actualPrice) || isNaN(newCarPrice) || isNaN(updatedGrant)) {
+      if (isNaN(previousGrant) || isNaN(actualPrice) || isNaN(currentCarValue) || isNaN(updatedGrant)) {
         alert("אנא מלא את כל השדות במספרים תקינים.");
         return;
       }
@@ -104,7 +104,7 @@
 
       document.getElementById("result").innerHTML = `
         <p><strong>אחוז מימון קודם:</strong> ${oldPercent.toFixed(2)}%</p>
-        <p><strong>שווי המימון לפי רכב חדש:</strong> ₪${newSupportValue.toFixed(2)}</p>
+        <p><strong>שווי מימון לפי שווי הרכב הנוכחי:</strong> ₪${newSupportValue.toFixed(2)}</p>
         <p><strong>סכום מענק בפועל:</strong> ₪${finalGrant.toFixed(2)}</p>
       `;
     }
