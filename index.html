@@ -75,8 +75,8 @@
     <label>עלות רכישת הרכב בפועל (₪)</label>
     <input type="number" id="actualPrice">
 
-    <label>מחירון הרכב החדש (₪)</label>
-    <input type="number" id="newCarPrice">
+    <label>שווי הרכב הנוכחי שלך כיום (אחרי ירידת ערך) (₪)</label>
+<input type="number" id="currentCarValue">
 
     <label>סכום זכאות מעודכן (₪)</label>
     <input type="number" id="updatedGrant">
@@ -90,7 +90,7 @@
     function calculateGrant() {
       const previousGrant = parseFloat(document.getElementById("previousGrant").value);
       const actualPrice = parseFloat(document.getElementById("actualPrice").value);
-      const newCarPrice = parseFloat(document.getElementById("newCarPrice").value);
+      const currentCarValue = parseFloat(document.getElementById("currentCarValue").value);
       const updatedGrant = parseFloat(document.getElementById("updatedGrant").value);
 
       if (isNaN(previousGrant) || isNaN(actualPrice) || isNaN(newCarPrice) || isNaN(updatedGrant)) {
@@ -99,7 +99,7 @@
       }
 
       const oldPercent = (previousGrant / actualPrice) * 100;
-      const newSupportValue = (oldPercent / 100) * newCarPrice;
+      const newSupportValue = (oldPercent / 100) * currentCarValue;
       const finalGrant = updatedGrant - newSupportValue;
 
       document.getElementById("result").innerHTML = `
